@@ -1,0 +1,54 @@
+buildscript {      // Configuration for building
+    repositories {
+        jcenter()      // Bintray's repository - a fast Maven Central mirror & more
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.google.cloud.tools:appengine-gradle-plugin:2.4.2'
+        classpath 'org.akhikhl.gretty:gretty:+'
+    }
+}
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'org.akhikhl.gretty'
+apply plugin: 'com.google.cloud.tools.appengine'
+
+mainClassName="MainServer"
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+appengine {
+    deploy {
+        stopPreviousVersion = true
+        promote = true
+        projectId = System.getenv('GOOGLE_CLOUD_PROJECT')
+        version = '1'
+    }
+}
+jar{
+    manifest{
+        attributes "Main-Class" : "MainServer"
+    }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
+    implementation 'org.eclipse.jetty:jetty-server:9.4.43.v20210629'
+    implementation 'org.eclipse.jetty:jetty-servlet:9.4.43.v20210629'
+    implementation 'org.eclipse.jetty:jetty-webapp:9.4.43.v20210629'
+
+    implementation 'org.eclipse.jetty:apache-jsp:9.4.43.v20210629'
+
+
+}
+
+test {
+    useJUnitPlatform()
+}

@@ -1,0 +1,4 @@
+runtime: java11
+entrypoint : java -cp JettyScratch.jar MainServer
+
+#entrypoint : 'java -cp "*" MainServer JettyScratch-1.0-SNAPSHOT.war'
