@@ -1,0 +1,18 @@
+This is application uses
+
+1)Embedded jetty server
+2)Java 11 environment
+3)Gradle
+
+What gradle does
+1)It creates an application plugin to run
+2)Creates a task to copy files to output directory
+
+command to run copy files
+
+gradle copyFiles
+
+you can run this file using a gradle command
+
+1)to test locally : gradle run
+

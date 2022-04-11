@@ -1,0 +1,23 @@
+This project uses
+1)Java
+2)Jetty Server
+3)Gradle
+
+In order to run this application use = " gradle run "
+
+Before running the application you need to build
+
+ Run following commands when you make changes :
+
+     gradle clean -- in order to clean your build
+     gradle copyfiles -- copy all files to build directory
+     gradle build -- build the gradle
+     gradle run
+
+Java version is = java 11
+
+Jetty Sever version is = 9
+
+Gradle version is = gradle-7.1
+
+Runs on local host 8080.
